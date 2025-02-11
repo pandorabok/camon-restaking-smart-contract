@@ -233,3 +233,4 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
 
         depositPool = _depositPool;
     }
+}
