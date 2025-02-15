@@ -231,3 +231,5 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
     function setDepositPool(address _depositPool) external onlyRole(LRTConstants.MANAGER) {
         if (_depositPool == address(0)) revert InvalidEmptyValue();
 
+        depositPool = _depositPool;
+    }
