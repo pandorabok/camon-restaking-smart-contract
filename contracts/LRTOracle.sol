@@ -222,3 +222,7 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
         emit MevRewardsAddedToTVL(balance);
     }
 
+    /*//////////////////////////////////////////////////////////////
+                            MANAGER FUNCTIONS
+    //////////////////////////////////////////////////////////////*/
+
