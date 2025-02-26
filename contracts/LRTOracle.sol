@@ -216,3 +216,8 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
 
     /// @dev send all rewards to deposit pool
     function sendFunds() external {
+        uint256 balance = address(this).balance;
+        ILRTDepositPool(depositPool).receiveFromRewardReceiver{ value: balance }();
+
+        emit MevRewardsAddedToTVL(balance);
+    }
