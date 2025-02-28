@@ -212,3 +212,7 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
     }
 
     /// @dev fallback to receive funds
+    receive() external payable { }
+
+    /// @dev send all rewards to deposit pool
+    function sendFunds() external {
