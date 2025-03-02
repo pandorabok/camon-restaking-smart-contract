@@ -207,3 +207,8 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
         _legacyProtocolFeePercentInBPS = _protocolFeePercentInBPS;
 
         __AccessControl_init();
+        _setupRole(DEFAULT_ADMIN_ROLE, admin);
+        _setupRole(LRTConstants.MANAGER, manager);
+    }
+
+    /// @dev fallback to receive funds
