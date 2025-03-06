@@ -204,3 +204,6 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
 
         _legacyProtocolTreasury = _protocolTreasury;
         depositPool = _depositPool;
+        _legacyProtocolFeePercentInBPS = _protocolFeePercentInBPS;
+
+        __AccessControl_init();
