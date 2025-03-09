@@ -200,3 +200,7 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
                 || admin == address(0) || manager == address(0)
         ) {
             revert InvalidEmptyValue();
+        }
+
+        _legacyProtocolTreasury = _protocolTreasury;
+        depositPool = _depositPool;
