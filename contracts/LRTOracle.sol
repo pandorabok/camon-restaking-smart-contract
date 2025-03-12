@@ -199,3 +199,4 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
             _protocolTreasury == address(0) || _depositPool == address(0) || _protocolFeePercentInBPS == 0
                 || admin == address(0) || manager == address(0)
         ) {
+            revert InvalidEmptyValue();
