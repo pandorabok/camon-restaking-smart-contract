@@ -9,7 +9,7 @@ import { ERC20PermitUpgradeable } from
     "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20PermitUpgradeable.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-contract KelpEarnedPoint is
+contract CamonEarnedPoint is
     Initializable,
     ERC20Upgradeable,
     ERC20PausableUpgradeable,
@@ -30,8 +30,8 @@ contract KelpEarnedPoint is
     /// @param defaultAdmin The default admin role
     /// @param minter The minter role
     function initialize(address defaultAdmin, address minter) public initializer {
-        __ERC20_init("Kelp Earned Point", "KEP");
-        __ERC20Permit_init("Kelp Points");
+        __ERC20_init("Camon Earned Point", "KEP");
+        __ERC20Permit_init("Camon Points");
         __ERC20Pausable_init();
         __AccessControl_init();
 

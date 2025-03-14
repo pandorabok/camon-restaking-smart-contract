@@ -1,5 +1,5 @@
 # LRT-ETH
-Kelp DAO (https://www.kelpdao.xyz/restake/) is liquid restaking protocol currently building on top of EigenLayer.
+Camon DAO (https://www.camondao.xyz/restake/) is liquid restaking protocol currently building on top of EigenLayer.
 It gives users access to multiple benefits like restaking rewards, staking rewards, DeFi and liquidity.
 
 ## Table of Content
@@ -270,7 +270,7 @@ or run `aderyn --help`
 | SwETHPriceOracle        | 0xCB8f20a144bFA15066148A1F29F1091d15B25f93     |
 | RETHPriceOracle         | 0x585839c360872731Fc271183b9F703654ce08275     |
 | FeeReceiver             | 0xdbC3363De051550D122D9C623CBaff441AFb477C     |
-| KelpEarnedPoint         | 0x8E3A59427B1D87Db234Dd4ff63B25E4BF94672f4     |
+| CamonEarnedPoint         | 0x8E3A59427B1D87Db234Dd4ff63B25E4BF94672f4     |
 | KEP MerkleDistributor   | 0x2DDB11443bD9Ceb92d4951A05f55eb7096EB53d3     |
 | EIGEN MerkleDistributor Season 1 (Not used anymore) | 0xc135b516e399C1ed702588D887FBBE6F2d1bA27A     |
 | EIGEN MerkleDistributor Programatic EIGEN           | 0x9bB6d4b928645EdA8f9C019495695BA98969eFF1     |

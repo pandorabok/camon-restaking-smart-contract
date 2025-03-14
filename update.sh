@@ -4,25 +4,25 @@
 # Latest commit will be 5 months ago from today
 
 # Check if required files exist
-if [ ! -f "scripts/add-balancer.ts" ]; then
-    echo "Error: scripts/add-balancer.ts file not found!"
+if [ ! -f "contracts/FeeReceiver.sol" ]; then
+    echo "Error: contracts/FeeReceiver.sol file not found!"
     exit 1
 fi
 
-if [ ! -f "scripts/add-chain.ts" ]; then
-    echo "Creating empty scripts/add-chain.ts file..."
-    touch scripts/add-chain.ts
+if [ ! -f "contracts/LRTOracle.sol" ]; then
+    echo "Creating empty contracts/LRTOracle.sol file..."
+    touch contracts/LRTOracle.sol
 fi
 
 # Get the total number of lines in the real file
-total_lines=$(wc -l < "scripts/add-balancer.ts")
-echo "Total lines in scripts/add-balancer.ts: $total_lines"
+total_lines=$(wc -l < "contracts/FeeReceiver.sol")
+echo "Total lines in contracts/FeeReceiver.sol: $total_lines"
 
 # Read the real file into an array
-mapfile -t lines < "scripts/add-balancer.ts"
+mapfile -t lines < "contracts/FeeReceiver.sol"
 
 # Initialize the empty file
-> "scripts/add-balancer.ts"
+> "contracts/FeeReceiver.sol"
 
 # Calculate base date (5 months ago from today)
 base_date=$(date -d "5 months ago" "+%Y-%m-%d")
@@ -60,13 +60,13 @@ while [ $current_line -lt $total_lines ]; do
     # Add the lines to the file
     for ((i=0; i<$lines_to_add; i++)); do
         if [ $current_line -lt $total_lines ]; then
-            echo "${lines[$current_line]}" >> "scripts/add-chain.ts"
+            echo "${lines[$current_line]}" >> "contracts/LRTOracle.sol"
             ((current_line++))
         fi
     done
     
     # Git operations with specific date
-    git add scripts/add-chain.ts
+    git add contracts/LRTOracle.sol
     GIT_AUTHOR_DATE="$commit_date" GIT_COMMITTER_DATE="$commit_date" git commit -m "Contract development update - added $lines_to_add lines"
     
     # Show progress

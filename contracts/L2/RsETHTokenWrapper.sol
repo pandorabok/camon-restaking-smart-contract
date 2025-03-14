@@ -11,7 +11,7 @@ import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/I
 import { UtilLib } from "../utils/UtilLib.sol";
 
 /// @title RsETHTokenWrapper
-/// @notice This contract is a wrapper for alternative RsETH tokens in L2 chains for a canonical rsETH token for KelpDao
+/// @notice This contract is a wrapper for alternative RsETH tokens in L2 chains for a canonical rsETH token for CamonDao
 /// @dev it is an upgradeable ERC20 token that wraps an alternative RsETH token
 /// It also uses the ERC20PermitUpgradeable extension
 /// the alt rsETH tokens can be swapped 1:1 for the canonical rsETH token

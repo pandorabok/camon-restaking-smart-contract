@@ -6,13 +6,13 @@ import { ReentrancyGuardUpgradeable } from "@openzeppelin/contracts-upgradeable/
 import { SafeERC20Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-/// @title Kelp Staking Rewards Contract
+/// @title Camon Staking Rewards Contract
 /// @dev Implements a basic staking mechanism with rewards.
 /// @dev modified from https://github.com/Synthetixio/synthetix/blob/develop/contracts/StakingRewards.sol
-contract KelpDepositPool is Initializable, ReentrancyGuardUpgradeable {
+contract CamonDepositPool is Initializable, ReentrancyGuardUpgradeable {
     using SafeERC20Upgradeable for IERC20Upgradeable;
 
-    IERC20Upgradeable public kelpToken;
+    IERC20Upgradeable public camonToken;
     IERC20Upgradeable public rewardsToken;
 
     address public admin;
@@ -26,7 +26,7 @@ contract KelpDepositPool is Initializable, ReentrancyGuardUpgradeable {
     mapping(address => uint256) public userRewardPerTokenPaid;
     mapping(address => uint256) public rewards;
 
-    uint256 public totalKelpStaked;
+    uint256 public totalCamonStaked;
     mapping(address => uint256) public balanceOf;
 
     error NotAuthorized();
@@ -60,11 +60,11 @@ contract KelpDepositPool is Initializable, ReentrancyGuardUpgradeable {
 
     /// @dev Initializes the contract with staking and rewards tokens addresses.
     /// @param _admin The address of the admin.
-    /// @param _kelpToken Address of the staking token.
+    /// @param _camonToken Address of the staking token.
     /// @param _rewardToken Address of the rewards token.
     function initialize(
         address _admin,
-        address _kelpToken,
+        address _camonToken,
         address _rewardToken,
         uint256 _duration
     )
@@ -72,7 +72,7 @@ contract KelpDepositPool is Initializable, ReentrancyGuardUpgradeable {
         initializer
     {
         admin = _admin;
-        kelpToken = IERC20Upgradeable(_kelpToken);
+        camonToken = IERC20Upgradeable(_camonToken);
         rewardsToken = IERC20Upgradeable(_rewardToken);
         duration = _duration;
     }
@@ -86,10 +86,10 @@ contract KelpDepositPool is Initializable, ReentrancyGuardUpgradeable {
     /// @dev Calculates the reward per token staked.
     /// @return The calculated reward per token.
     function rewardPerToken() public view returns (uint256) {
-        if (totalKelpStaked == 0) {
+        if (totalCamonStaked == 0) {
             return rewardPerTokenStored;
         }
-        return rewardPerTokenStored + (rewardRate * (lastTimeRewardApplicable() - updatedAt) * 1e18) / totalKelpStaked;
+        return rewardPerTokenStored + (rewardRate * (lastTimeRewardApplicable() - updatedAt) * 1e18) / totalCamonStaked;
     }
 
     /// @dev Allows a user to stake a specified amount of staking tokens.
@@ -97,8 +97,8 @@ contract KelpDepositPool is Initializable, ReentrancyGuardUpgradeable {
     function stake(uint256 _amount) external nonReentrant updateReward(msg.sender) {
         if (_amount == 0) revert AmountZero();
         balanceOf[msg.sender] += _amount;
-        totalKelpStaked += _amount;
-        kelpToken.safeTransferFrom(msg.sender, address(this), _amount);
+        totalCamonStaked += _amount;
+        camonToken.safeTransferFrom(msg.sender, address(this), _amount);
     }
 
     /// @dev Allows a user to withdraw staked tokens.
@@ -106,8 +106,8 @@ contract KelpDepositPool is Initializable, ReentrancyGuardUpgradeable {
     function withdraw(uint256 _amount) external nonReentrant updateReward(msg.sender) {
         if (_amount == 0) revert AmountZero();
         balanceOf[msg.sender] -= _amount;
-        totalKelpStaked -= _amount;
-        kelpToken.safeTransfer(msg.sender, _amount);
+        totalCamonStaked -= _amount;
+        camonToken.safeTransfer(msg.sender, _amount);
     }
 
     /// @dev Calculates the amount of rewards earned by an account.
