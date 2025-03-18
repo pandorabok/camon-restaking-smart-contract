@@ -193,3 +193,5 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
         address manager
     )
         public
+        initializer
+    {
