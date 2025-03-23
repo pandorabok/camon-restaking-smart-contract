@@ -190,3 +190,6 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
         address _depositPool,
         uint256 _protocolFeePercentInBPS,
         address admin,
+        address manager
+    )
+        public
