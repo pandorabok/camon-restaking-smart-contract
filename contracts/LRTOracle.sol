@@ -185,3 +185,8 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
         _disableInitializers();
     }
 
+    function initialize(
+        address _protocolTreasury,
+        address _depositPool,
+        uint256 _protocolFeePercentInBPS,
+        address admin,
