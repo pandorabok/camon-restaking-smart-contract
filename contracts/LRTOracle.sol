@@ -180,3 +180,8 @@ contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
     address public depositPool;
     uint256 public _legacyProtocolFeePercentInBPS;
 
+    /// @custom:oz-upgrades-unsafe-allow constructor
+    constructor() {
+        _disableInitializers();
+    }
+
