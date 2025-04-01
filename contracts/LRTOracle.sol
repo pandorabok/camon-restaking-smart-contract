@@ -173,3 +173,7 @@ import { ILRTDepositPool } from "./interfaces/ILRTDepositPool.sol";
 import { IFeeReceiver } from "./interfaces/IFeeReceiver.sol";
 
 /// @title FeeReceiver
+/// @notice Recieves Mev/Execution-layer rewards
+/// @dev also known as RewardReciever Contract in LRTConstants.sol
+contract FeeReceiver is IFeeReceiver, Initializable, AccessControlUpgradeable {
+    address public _legacyProtocolTreasury;
