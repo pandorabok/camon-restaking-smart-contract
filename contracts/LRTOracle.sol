@@ -163,3 +163,8 @@ contract LRTOracle is ILRTOracle, LRTConfigRoleChecker, Initializable {
         return percentage > pricePercentageLimit;
     }
 }
+// SPDX-License-Identifier: BUSL-1.1
+pragma solidity 0.8.21;
+
+import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import { AccessControlUpgradeable } from "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
